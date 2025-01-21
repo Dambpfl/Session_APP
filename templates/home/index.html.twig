@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Formations{% endblock %}
 
 {% block body %}
 
     <h1>Formations</h1>
     
-    
+    {% for formation in formations %}
+        <a href="{{ path('show_formation', {'id':formation.id })}}">{{formation.nomFormation}}</a><br>
+    {% endfor %}
 
 {% endblock %}
