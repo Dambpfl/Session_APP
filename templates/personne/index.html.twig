@@ -6,7 +6,7 @@
     <h1>Détails des stagiaires</h1>
 
     {% for stagiaire in stagiaires %}
-        {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} <br>
+        {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} <i class="fa-solid fa-pen-to-square"></i><br>
         Sexe : {{ stagiaire.sexe }}<br>
         Date de naissance : {{ stagiaire.dateNaissance | date("d-m-Y") }}<br>
         Ville : {{ stagiaire.ville }}<br>
