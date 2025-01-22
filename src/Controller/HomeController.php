@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Formation;
 use App\Repository\FormationRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -22,7 +23,7 @@ final class HomeController extends AbstractController
     #[Route('/formation/{id}', name: 'show_formation')]
     public function show(Formation $formation): Reponse
     {
-        return $this->render('formation/show.html.twig', [
+        return $this->render('session/index.html.twig', [
             'formation' => $formation
         ]);
     }
