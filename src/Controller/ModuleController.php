@@ -2,19 +2,17 @@
 
 namespace App\Controller;
 
-use App\Repository\ModuleRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class ModuleController extends AbstractController
 {
     #[Route('/module', name: 'app_module')]
-    public function index(ModuleRepository $moduleRepository): Response
+    public function index(): Response
     {
-        $modules = $moduleRepository->findBy([]);
-        return $this->render('session/show.html.twig', [
-            'modules' => $modules,
+        return $this->render('module/index.html.twig', [
+            'controller_name' => 'ModuleController',
         ]);
     }
 }
