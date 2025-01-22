@@ -6,7 +6,7 @@
     <h1>Détails des stagiaires</h1>
 
     {% for stagiaire in stagiaires %}
-        {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} <i class="fa-solid fa-pen-to-square"></i><br>
+        {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} <a href="{{ path('new_stagiaire')}}"><i class="fa-solid fa-pen-to-square"></i></a></i><br>
         Sexe : {{ stagiaire.sexe }}<br>
         Date de naissance : {{ stagiaire.dateNaissance | date("d-m-Y") }}<br>
         Ville : {{ stagiaire.ville }}<br>
