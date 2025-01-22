@@ -12,9 +12,13 @@
     <p>Date de fin : {{ session.dateFin | date("d-m-Y") }}</p>
 
     <h3>Formateur</h3>
+    <p>{{ session.formateur.nomFormateur }} {{ session.formateur.prenomFormateur }}</p>
 
     <h3>Modules</h3>
 
+
     <h3>Stagiaires</h3>
-    
+    {% for stagiaire in session.stagiaires %}
+        {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} <br>
+    {% endfor %}
 {% endblock %}
