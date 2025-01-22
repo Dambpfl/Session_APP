@@ -12,7 +12,10 @@
         Ville : {{ stagiaire.ville }}<br>
         Courriel : {{ stagiaire.email }}<br>
         Téléphone : {{ stagiaire.telephone}}<br>
-        Sessions prévues : <br><br>
+        Sessions prévues : <br>
+        {% for session in stagiaire.sessions %}
+            - {{ session.nomSession}} <br>
+        {% endfor %}<br><br>
 
     {% endfor %}
 {% endblock %}
