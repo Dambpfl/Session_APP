@@ -5,9 +5,10 @@
 {% block body %}
     <h1>Liste des sessions</h1> 
 
+    <h2>{{ formation.nomFormation }}</h2>
 
-    {% for session in sessions %}
-        <tr><td><a href="{{ path('show_session', {'id':session.id })}}">{{ session.nomSession }}</a></td></tr>
+    {% for session in formation.sessions %}
+        <tr><td><a href="{{ path('show_session', {'id':session.id })}}">{{ session.nomSession }}</a></td></tr><br>
     {% endfor %}
 
 

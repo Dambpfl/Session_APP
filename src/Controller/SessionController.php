@@ -22,7 +22,7 @@ final class SessionController extends AbstractController
     #[Route('/session/{id}', name: 'show_session')]
     public function show(Session $session): Reponse
     {
-        return $this->render('show/index.html.twig', [
+        return $this->render('session/show.html.twig', [
             'session' => $session
         ]);
     }
