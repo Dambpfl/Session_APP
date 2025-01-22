@@ -10,11 +10,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 final class PersonneController extends AbstractController
 {
-    #[Route('/stagiaire', name: 'app_stagiaire')]
+    #[Route('/personne', name: 'app_personne')]
     public function index(StagiaireRepository $stagiaireRepository): Response
     {
         $stagiaires = $stagiaireRepository->findBy([]);
         return $this->render('session/show.html.twig', [
+            'stagiaires' => $stagiaires, 
+        ]);
+    }
+
+    #[Route('/stagiaire', name: 'app_stagiaire')]
+    public function indexStagiaire(StagiaireRepository $stagiaireRepository): Response
+    {
+        $stagiaires = $stagiaireRepository->findBy([]);
+        return $this->render('personne/index.html.twig', [
             'stagiaires' => $stagiaires, 
         ]);
     }
