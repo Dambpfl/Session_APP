@@ -6,7 +6,7 @@
     <h1>Détails de la session</h1>
 
     <h2>{{ session.nomSession }}</h2>
-    
+
     <h3>Formateur</h3>
     <p>{{ session.formateur.nomFormateur }} {{ session.formateur.prenomFormateur }}</p>
 
@@ -17,7 +17,14 @@
 
     <h3>Modules</h3>
     {% for programme in session.programmes %}
-        <p>{{ programme.module.nomModule }}</p>
+        <p>{{ programme.module.nomModule }} - 
+
+        {% if programme.nbJour is same as(1) %}
+            {{ programme.nbJour}} jour
+        {% else %}
+            {{ programme.nbJour}} jours
+        {% endif %} </p>
+
     {% endfor %}
 
     <h3>Stagiaires</h3>
