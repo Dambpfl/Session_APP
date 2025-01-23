@@ -32,9 +32,12 @@ final class PersonneController extends AbstractController
     }
     
     #[Route('/stagiaire/new', name: 'new_stagiaire')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $stagiaire = new Stagiaire();
+    #[Route('/stagiaire/{id}/edit', name: 'edit_stagiaire')]
+    public function new_edit(Stagiaire $stagiaire = null, Request $request, EntityManagerInterface $entityManager): Response
+    {   
+        if(!$stagiaire) {
+            $stagiaire = new Stagiaire();
+        }
         
         $form = $this->createForm(StagiaireType::class, $stagiaire);
 
