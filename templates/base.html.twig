@@ -19,6 +19,8 @@
         <i class="fa-solid fa-user"></i>{{ app.user.email}}
         <a href="{{ path('app_home')}}"><i class="fa-solid fa-house"></i>Formations</a>
         <a href="{{ path('app_session')}}"><i class="fa-brands fa-artstation"></i>Sessions</a>
+        <a href="{{ path('app_stagiaire')}}"><i class="fa-solid fa-book"></i>Stagiaires</a>
+        <a href="{{ path('app_formateur')}}"><i class="fa-solid fa-book"></i>Formateurs</a>
         <a href="{{ path('app_logout')}}"><i class="fa-solid fa-power-off"></i></a>
         {% else %}
         <a href="{{ path('app_login')}}">Se connecter</a>
