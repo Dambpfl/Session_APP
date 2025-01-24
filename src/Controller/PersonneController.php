@@ -54,10 +54,22 @@ final class PersonneController extends AbstractController
         }
 
         return $this->render('personne/new.html.twig', [
-            'formAddStagiaire' => $form
+            'formAddStagiaire' => $form,
+            'edit' => $stagiaire->getId()
         ]);        
     }
-    
+
+    #[Route('/stagiaire/{id}/delete', name: 'delete_stagiaire')]
+    public function delete(Stagiaire $stagiaire, EntityManagerInterface $entityManager): Response
+    {
+        $entityManager->remove($stagiaire);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_stagiaire');
+    }
+
+
+    # Toujours en dernier #
     #[Route('/stagiaire/{id}', name: 'show_stagiaire')]
     public function show(Stagiaire $stagiaire): Response
     {
