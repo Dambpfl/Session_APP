@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails des formateurs{% endblock %}
+
+{% block body %}
+    <h1>Détails des formateurs</h1>
+    <a href="{{ path('new_formateur')}}"><i class="fa-solid fa-plus"></i></a><br>
+    {% for formateur in formateurs %}
+       {{ formateur.nomFormateur}} {{ formateur.prenomFormateur}} <a href="{{ path('edit_formateur', {'id': formateur.id } )}}"><i class="fa-solid fa-pen-to-square"></i></a></i><br>
+       {{ formateur.emailFormateur}}
+       <a href="{{ path('delete_formateur', {'id': formateur.id })}}"><i class="fa-solid fa-xmark"></i></a><br><br>
+       {% endfor %}
+{% endblock %}

@@ -7,7 +7,7 @@
 
     <h2>{{ session.nomSession }}</h2>
 
-    <h3>Formateur <i class="fa-solid fa-pen-to-square"></i></h3>
+    <h3>Formateur <a href="{{ path('app_formateur') }}"><i class="fa-solid fa-pen-to-square"></i></a></h3>
     <p>{{ session.formateur.nomFormateur }} {{ session.formateur.prenomFormateur }}</p>
 
     <h3>Informations <i class="fa-solid fa-pen-to-square"></i></h3>
@@ -15,14 +15,14 @@
     <p>Date de début : {{ session.dateDebut | date("d-m-Y") }}</p>
     <p>Date de fin : {{ session.dateFin | date("d-m-Y") }}</p>
 
-    <h3>Modules <i class="fa-solid fa-pen-to-square"></i></i></h3>
+    <h3>Modules</h3>
     {% for programme in session.programmes %}
         <p>{{ programme.module.nomModule }} - 
 
         {% if programme.nbJour is same as(1) %}
-            {{ programme.nbJour}} jour
+            {{ programme.nbJour}} jour  <a href="#"><i class="fa-solid fa-pen-to-square"></i></i></a>
         {% else %}
-            {{ programme.nbJour}} jours
+            {{ programme.nbJour}} jours  <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a>
         {% endif %} </p>
 
     {% endfor %}

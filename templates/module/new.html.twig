@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un programme{% endblock %}
+
+{% block body %}
+{% if edit %}
+        <h1>Modifier le programme</h1>     
+    {% else %}
+        <h1>Ajouter un programme</h1>
+    {% endif %}
+
+
+    {{ form_start(formAddProgramme) }}
+        <div class="row">
+            <div class="col-sm">
+                {{ form_row(formAddProgramme.module)}}
+            </div>
+            <div class="col-sm">
+                {{ form_row(formAddProgramme.nbJour)}}
+            </div>
+        </div>
+        {{ form_row(formAddProgramme.valider)}}
+
+{% endblock %}
