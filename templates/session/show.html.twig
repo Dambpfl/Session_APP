@@ -15,15 +15,15 @@
     <p>Date de début : {{ session.dateDebut | date("d-m-Y") }}</p>
     <p>Date de fin : {{ session.dateFin | date("d-m-Y") }}</p>
 
-    <h3>Modules</h3>
+    <h3>Modules</h3> 
     {% for programme in session.programmes %}
         <p>{{ programme.module.nomModule }} - 
 
         {% if programme.nbJour is same as(1) %}
-            {{ programme.nbJour}} jour  <a href="#"><i class="fa-solid fa-pen-to-square"></i></i></a>
+            {{ programme.nbJour}} jour 
         {% else %}
-            {{ programme.nbJour}} jours  <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a>
-        {% endif %} </p>
+            {{ programme.nbJour}} jours  
+        {% endif %} <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a></p> 
 
     {% endfor %}
 

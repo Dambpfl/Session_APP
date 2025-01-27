@@ -18,10 +18,6 @@ class ProgrammeType extends AbstractType
     {
         $builder
             ->add('nbJour', IntegerType::class)
-            ->add('session', EntityType::class, [
-                'class' => Session::class,
-                'choice_label' => 'nomSession',
-            ])
             ->add('module', EntityType::class, [
                 'class' => Module::class,
                 'choice_label' => 'nomModule',

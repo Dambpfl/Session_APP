@@ -24,29 +24,29 @@ final class ModuleController extends AbstractController
 
     #[Route('/programme/new', name: 'new_programme')]
     #[Route('/programme/{id}/edit', name: 'edit_programme')]
-    public function edit(Programme $programme = null, Request $request, EntityManagerInterface $entityManager): Response
+    public function new_edit(Programme $programme = null, Request $request, EntityManagerInterface $entityManager): Response
     {   
         if(!$programme) {
             $programme = new Programme();
         }
-
+        
         $form = $this->createForm(ProgrammeType::class, $programme);
-
+        
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()){
             
             $programme = $form->getData();
-            
+            $sessionId = $programme->getSession()->getId();
+
             $entityManager->persist($programme);
             $entityManager->flush();
 
-            return $this->redirectToRoute('#');
+            return $this->redirectToRoute('show_session', ['id' => $sessionId]);
         }
 
         return $this->render('module/new.html.twig', [
-            'formAddProgramme' => $form,
-            'edit' => $programme->getId()
+            'formAddProgramme' => $form
         ]);        
     }
 }

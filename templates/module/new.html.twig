@@ -9,7 +9,6 @@
         <h1>Ajouter un programme</h1>
     {% endif %}
 
-
     {{ form_start(formAddProgramme) }}
         <div class="row">
             <div class="col-sm">
@@ -20,5 +19,6 @@
             </div>
         </div>
         {{ form_row(formAddProgramme.valider)}}
+    {{ form_end(formAddProgramme) }}
 
 {% endblock %}
