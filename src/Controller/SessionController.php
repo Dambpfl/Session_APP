@@ -37,11 +37,13 @@ final class SessionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()){
             
             $session = $form->getData();
+        
+            $formationId = $session->getFormation()->getId();
             
             $entityManager->persist($session);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_session');
+            return $this->redirectToRoute('show_formation', ['id' => $formationId ]);
         }
 
         return $this->render('session/new.html.twig', [

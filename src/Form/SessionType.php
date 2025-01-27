@@ -29,10 +29,6 @@ class SessionType extends AbstractType
                 'class' => Formateur::class,
                 'choice_label' => 'nomFormateur',
             ])
-            ->add('formation', EntityType::class, [
-                'class' => Formation::class,
-                'choice_label' => 'nomFormation',
-            ])
             ->add('valider', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-success'

@@ -46,7 +46,8 @@ final class ModuleController extends AbstractController
         }
 
         return $this->render('module/new.html.twig', [
-            'formAddProgramme' => $form
+            'formAddProgramme' => $form,
+            'edit' => $programme
         ]);        
     }
 }
