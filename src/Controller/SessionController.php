@@ -22,6 +22,15 @@ final class SessionController extends AbstractController
         ]);
     }
 
+    #[Route('/session/list', name: 'app_list_session')]
+    public function list(SessionRepository $sessionRepository): Response
+    {
+        $sessions = $sessionRepository->findAll();
+        return $this->render('session/list.html.twig', [
+            'sessions' => $sessions
+        ]);
+    }
+
     #[Route('/session/new', name: 'new_session')]
     #[Route('/session/{id}/edit', name: 'edit_session')]
     public function new_edit_session(Session $session = null, Request $request, EntityManagerInterface $entityManager): Response
@@ -40,7 +49,6 @@ final class SessionController extends AbstractController
         
             $formationId = $session->getFormation()->getId();
             $sessionId = $session->getId();
-            //($sessionId);
             
             $entityManager->persist($session);
             $entityManager->flush();
