@@ -44,10 +44,20 @@ final class ModuleController extends AbstractController
 
             return $this->redirectToRoute('show_session', ['id' => $sessionId]);
         }
-
         return $this->render('module/new.html.twig', [
             'formAddProgramme' => $form,
             'edit' => $programme
         ]);        
+    }
+
+    #[Route('/module/{id}/delete', name: 'delete_module')]
+    public function delete(Programme $programme, EntityManagerInterface $entityManager): Response
+    {
+        $sessionId = $programme->getSession()->getId();
+
+        $entityManager->remove($programme);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('show_session', ['id' => $sessionId]);
     }
 }

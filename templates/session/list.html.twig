@@ -4,14 +4,17 @@
 
 {% block body %}
     <h1>Liste des sessions</h1>
+    <a href="{{ path('new_session')}}"><i class="fa-solid fa-plus"></i></a><br>
 
     {% for session in sessions %}
-        {{session.nomSession}} <br>
+        {{ session.nomSession }} <a href="{{ path('edit_session', {'id': session.id } )}}"><i class="fa-solid fa-pen-to-square"></i></a><br>
         Début : {{session.dateDebut | date("d-m-Y")}} <br>
         Fin : {{session.dateFin | date("d-m-Y")}} <br>
         Places : {{session.place}} <br>
         Formateur : {{ session.formateur.nomFormateur}} {{ session.formateur.prenomFormateur}} <br>
-        Formation : {{ session.formation.nomFormation}}<br><br>
+        Formation : {{ session.formation.nomFormation}}
+        <a href="{{ path('delete_session', {'id':session.id})}}"><i class="fa-solid fa-xmark"></i></a>
+        <br><br>
     {% endfor %}
 
 {% endblock %}

@@ -14,7 +14,7 @@
         Téléphone : {{ stagiaire.telephone}}<br>
         Sessions prévues : <br>
         {% for session in stagiaire.sessions %}
-            - {{ session.nomSession}} <br>
+            - {{ session.nomSession}}<br>
         {% endfor %}
         <a href="{{ path('delete_stagiaire', {'id': stagiaire.id })}}"><i class="fa-solid fa-xmark"></i></a><br><br>
     {% endfor %}

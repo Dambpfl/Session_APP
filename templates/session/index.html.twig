@@ -4,14 +4,12 @@
 
 {% block body %}
     <h1>{{ formation.nomFormation }}</h1> 
-
+    
     <h2>Sessions</h2>
+    
     <a href="{{ path('new_session')}}"><i class="fa-solid fa-plus"></i></a><br>
     {% for session in formation.sessions %}
-        <tr><td><a href="{{ path('show_session', {'id':session.id })}}">{{ session.nomSession }}</a></td></tr> <a href="{{ path('edit_session', {'id': session.id } )}}"><i class="fa-solid fa-pen-to-square"></i></a> </i><a href="{{ path('delete_session', {'id':session.id})}}"><i class="fa-solid fa-xmark"></i></a><br><br>
-        
+        <a href="{{ path('show_session', {'id':session.id })}}">{{ session.nomSession }}</a> <a href="{{ path('edit_session', {'id': session.id } )}}"><i class="fa-solid fa-pen-to-square"></i></a> <a href="{{ path('delete_session', {'id':session.id})}}"><i class="fa-solid fa-xmark"></i></a><br><br>    
     {% endfor %}
-
-
 
 {% endblock %}
