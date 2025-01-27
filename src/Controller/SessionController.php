@@ -52,6 +52,18 @@ final class SessionController extends AbstractController
         ]);        
     }
 
+    #[Route('/session/{id}/delete', name: 'delete_session')]
+    public function delete_session(Session $session, EntityManagerInterface $entityManager): Response
+    {
+        $formationId = $session->getFormation()->getId();
+
+        $entityManager->remove($session);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('show_formation', ['id' => $formationId]);
+    }
+
+
     #[Route('/session/{id}', name: 'show_session')]
     public function show(Session $session): Response
     {
