@@ -39,11 +39,17 @@ final class SessionController extends AbstractController
             $session = $form->getData();
         
             $formationId = $session->getFormation()->getId();
+            $sessionId = $session->getId();
+            //($sessionId);
             
             $entityManager->persist($session);
             $entityManager->flush();
 
-            return $this->redirectToRoute('show_formation', ['id' => $formationId ]);
+            if($request->attributes->get('_route') === 'new_session') { 
+                return $this->redirectToRoute('show_formation', ['id' => $formationId ]);
+            } else {
+                return $this->redirectToRoute('show_session', ['id' => $sessionId ]);
+            }
         }
 
         return $this->render('session/new.html.twig', [
