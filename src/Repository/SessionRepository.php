@@ -16,6 +16,46 @@ class SessionRepository extends ServiceEntityRepository
         parent::__construct($registry, Session::class);
     }
 
+    // Afficher les stagiaires non inscrits dans une session
+    public function findNonInscrits($session_id)
+    {
+        $em = $this->getEntityManager();
+        $sub = $em->createQueryBuilder();
+        
+        $qb = $sub;
+        // sélectionner tous les stagiaires d'une session dont l'id est passé en paramètre
+        $qb->select('s')
+           ->from('App\Entity\Stagiaire', 's')
+           ->leftJoin('s.sessions', 'se')
+           ->where('se.id = :id');
+
+        $sub = $em->createQueryBuilder();
+        // sélectionner tous les stagiaires qui ne SONT PAS (NOT IN) dans le résultat précédent
+        // on obtient donc les stagiaires non inscrits pour une session définie
+        $sub->select('st')
+            ->from('App\Entity\Stagiaire', 'st')
+            ->where($sub->expr()->notIn('st.id', $qb->getDQL()))
+            // requête paramétrée
+            ->setParameter('id', $session_id)
+            // trier la liste des stagiaires sur le nom de famille
+            ->orderBy('st.nomStagiaire');
+
+        // renvoyer le résultat
+        $query = $sub->getQuery();
+        return $query->getResult();
+
+        /* Equivalent requete SQL
+
+        SELECT stagiaire.nom_stagiaire, stagiaire.prenom_stagiaire
+        FROM stagiaire
+        WHERE stagiaire.id NOT IN (
+		    SELECT session.id
+		    FROM session
+		    LEFT JOIN stagiaire ON session.id = stagiaire.id
+		    WHERE session.id = 1) */
+        
+    }
+
     //    /**
     //     * @return Session[] Returns an array of Session objects
     //     */

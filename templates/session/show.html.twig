@@ -31,5 +31,10 @@
 
     {% for stagiaire in session.stagiaires %}
         {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} <br>
+    {% endfor %}<br>
+    
+    <h3>Stagiaires non-inscrit</h3>
+    {% for stagiaire in nonInscrits %}
+        {{ stagiaire.nomStagiaire}} {{stagiaire.prenomStagiaire}} <br>
     {% endfor %}
 {% endblock %}
