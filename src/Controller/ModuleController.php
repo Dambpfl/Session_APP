@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Module;
 use App\Entity\Programme;
 use App\Form\ProgrammeType;
 use App\Repository\ModuleRepository;
@@ -17,7 +18,7 @@ final class ModuleController extends AbstractController
     public function index(ModuleRepository $moduleRepository): Response
     {
         $modules = $moduleRepository->findBy([]);
-        return $this->render('session/show.html.twig', [
+        return $this->render('module/index.html.twig', [
             'modules' => $modules,
         ]);
     }
@@ -51,13 +52,12 @@ final class ModuleController extends AbstractController
     }
 
     #[Route('/module/{id}/delete', name: 'delete_module')]
-    public function delete(Programme $programme, EntityManagerInterface $entityManager): Response
+    public function delete(Module $module, EntityManagerInterface $entityManager): Response
     {
-        $sessionId = $programme->getSession()->getId();
-
-        $entityManager->remove($programme);
+       
+        $entityManager->remove($module);
         $entityManager->flush();
 
-        return $this->redirectToRoute('show_session', ['id' => $sessionId]);
+        return $this->redirectToRoute('app_module');
     }
 }

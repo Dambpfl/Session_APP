@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ModuleController!{% endblock %}
+{% block title %}Liste des modules{% endblock %}
 
 {% block body %}
-
+    <h1>Liste des modules</h1>
+    <a href="#"><i class="fa-solid fa-plus"></i></a><br>
+    {% for module in modules %}
+        {{ module.nomModule}} <a href="{{ path('delete_module', {'id':module.id})}}"><i class="fa-solid fa-xmark"></i></a>
+        <br>
+    {% endfor %}    
 {% endblock %}

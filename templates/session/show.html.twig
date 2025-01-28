@@ -23,10 +23,16 @@
             {{ programme.nbJour}} jour 
         {% else %}
             {{ programme.nbJour}} jours  
-        {% endif %} <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a> 
-        <a href="{{ path('delete_module', {'id': programme.session.id })}}"><i class="fa-solid fa-xmark"></i></a></p>
+        {% endif %}
+        <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a> 
+        <a href="#"><i class="fa-solid fa-right-to-bracket"></i></a></p>
     {% endfor %}
 
+    <h3>Modules non-programmés</h3>
+    {% for module in nonProgrammes %}
+        {{ module.nomModule}} <br>
+    {% endfor %}
+    
     <h3>Stagiaires <a href="{{ path('app_stagiaire') }}"><i class="fa-solid fa-book"></i></a></h3>
 
     {% for stagiaire in session.stagiaires %}
@@ -38,8 +44,5 @@
         {{ stagiaire.nomStagiaire}} {{stagiaire.prenomStagiaire}} <br>
     {% endfor %}
 
-    <h3>Modules non-programmés</h3>
-    {% for module in nonProgrammes %}
-        {{ module.nomModule}} <br>
-    {% endfor %}
+    
 {% endblock %}
