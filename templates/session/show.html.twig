@@ -37,4 +37,9 @@
     {% for stagiaire in nonInscrits %}
         {{ stagiaire.nomStagiaire}} {{stagiaire.prenomStagiaire}} <br>
     {% endfor %}
+
+    <h3>Modules non-programmés</h3>
+    {% for module in nonProgrammes %}
+        {{ module.nomModule}} <br>
+    {% endfor %}
 {% endblock %}

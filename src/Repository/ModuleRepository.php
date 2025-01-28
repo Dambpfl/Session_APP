@@ -16,6 +16,38 @@ class ModuleRepository extends ServiceEntityRepository
         parent::__construct($registry, Module::class);
     }
 
+    public function findNonProgrammes($session_id)
+    {
+        $em = $this->getEntityManager();
+        $sub = $em->createQueryBuilder();
+
+        $qb = $sub;
+
+        $qb->select('p')
+           ->from('App\Entity\Programme', 'p')
+           ->where('p.session = :id');
+
+        $sub = $em->createQueryBuilder();
+
+        $sub->select('module.nomModule')
+            ->from('App\Entity\Module', 'module')
+            ->where($sub->expr()->notIn('module.id', $qb->getDQL()))
+            ->setParameter('id', $session_id)
+            ->orderBy('module.nomModule');
+
+        $query = $sub->getQuery();
+        return $query->getResult();
+
+        /* Equivalent requete SQL
+            SELECT module.nom_module
+            FROM module
+            WHERE module.id NOT IN (
+		        SELECT programme.module_id 
+		        FROM programme
+		        WHERE session_id = 5)
+        */
+    }
+
     //    /**
     //     * @return Module[] Returns an array of Module objects
     //     */

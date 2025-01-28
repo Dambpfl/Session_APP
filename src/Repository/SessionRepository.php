@@ -49,10 +49,10 @@ class SessionRepository extends ServiceEntityRepository
         SELECT stagiaire.nom_stagiaire, stagiaire.prenom_stagiaire
         FROM stagiaire
         WHERE stagiaire.id NOT IN (
-		    SELECT session.id
-		    FROM session
-		    LEFT JOIN stagiaire ON session.id = stagiaire.id
-		    WHERE session.id = 1) */
+		    SELECT stagiaire.id 
+			FROM stagiaire
+			INNER JOIN session_stagiaire ON stagiaire.id = session_stagiaire.stagiaire_id 
+			WHERE session_id = 5) */
         
     }
 
