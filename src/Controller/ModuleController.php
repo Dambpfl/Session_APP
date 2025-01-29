@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Module;
+use App\Entity\Session;
 use App\Form\ModuleType;
 use App\Entity\Programme;
 use App\Form\ProgrammeType;
@@ -83,5 +84,16 @@ final class ModuleController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('app_module');
+    }
+
+    // Retirer un programme d'une session
+    #[Route('/module/{programme}', name: 'remove_programme')]
+    public function remove(Programme $programme, EntityManagerInterface $entityManager): Response
+    {
+        $sessionId = $programme->getSession()->getId();
+        $entityManager->remove($programme);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('show_session', ['id' => $sessionId]);
     }
 }

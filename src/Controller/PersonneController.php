@@ -74,6 +74,7 @@ final class PersonneController extends AbstractController
         return $this->redirectToRoute('app_stagiaire');
     }
 
+    // Retirer un stagiaire de la session
     #[Route('/stagiaire/{stagiaire}/remove/{session}', name: 'remove_stagiaire')]
     public function remove_stagiaire(Stagiaire $stagiaire, Session $session, EntityManagerInterface $entityManager) : Response
     {
@@ -88,6 +89,7 @@ final class PersonneController extends AbstractController
         return $this->redirectToRoute('show_session', ['id' => $sessionId]);
     }
 
+    // Ajouter un stagiaire à la session
     #[Route('stagiaire/{stagiaire}/add/{session}', name: 'add_stagiaire')]
     public function add_stagiaire(Stagiaire $stagiaire, Session $session, EntityManagerInterface $entityManager): Response
     {
