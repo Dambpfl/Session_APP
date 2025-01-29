@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Module;
+use App\Form\ModuleType;
 use App\Entity\Programme;
 use App\Form\ProgrammeType;
 use App\Repository\ModuleRepository;
@@ -48,6 +49,29 @@ final class ModuleController extends AbstractController
         return $this->render('module/new.html.twig', [
             'formAddProgramme' => $form,
             'edit' => $programme
+        ]);        
+    }
+
+    #[Route('/module/new', name: 'new_module')]
+    public function new_module(Module $module = null, Request $request, EntityManagerInterface $entityManager): Response
+    {   
+        $module = new Module();
+        
+        $form = $this->createForm(ModuleType::class, $module);
+        
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid()){
+            
+            $module = $form->getData();
+
+            $entityManager->persist($module);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_module');
+        }
+        return $this->render('module/newModule.html.twig', [
+            'formAddModule' => $form,
         ]);        
     }
 
