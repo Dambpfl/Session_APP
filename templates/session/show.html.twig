@@ -30,7 +30,11 @@
 
     <h3>Modules non-programmés</h3>
     {% for module in nonProgrammes %}
-        {{ module.nomModule}} <br>
+        {{ module.nomModule}}
+        <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
+            <input type="number" name="days" min="1" placeholder="Nombre de jours">
+            <button type="submit" name="submit" value="valider"><i class="fa-solid fa-circle-plus"></i></button><br>
+        </form>
     {% endfor %}
     
     <h3>Stagiaires <a href="{{ path('app_stagiaire') }}"><i class="fa-solid fa-book"></i></a></h3>

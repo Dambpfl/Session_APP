@@ -96,4 +96,24 @@ final class ModuleController extends AbstractController
 
         return $this->redirectToRoute('show_session', ['id' => $sessionId]);
     }
+
+    // Ajouter un programme à une session
+    #[Route('/module/{module}/add/{session}', name: 'add_programme')]
+    public function add(Session $session,Module $module, EntityManagerInterface $entityManager): Response
+    {
+        $programme = New Programme;
+
+        $nbjour = filter_input(INPUT_POST, 'days', FILTER_VALIDATE_INT);
+
+        $programme->setSession($session);
+        $programme->setModule($module);
+        $programme->setNbJour($nbjour);
+    
+        $entityManager->persist($programme);
+        $entityManager->flush();
+        
+        $sessionId = $session->getId();
+
+        return $this->redirectToRoute('show_session', ['id' => $sessionId]);
+    }
 }

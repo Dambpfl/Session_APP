@@ -29,7 +29,7 @@ class ModuleRepository extends ServiceEntityRepository
 
         $sub = $em->createQueryBuilder();
 
-        $sub->select('module.nomModule')
+        $sub->select('module.nomModule, module.id')
             ->from('App\Entity\Module', 'module')
             ->where($sub->expr()->notIn('module.id', $qb->getDQL()))
             ->setParameter('id', $session_id)
