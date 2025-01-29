@@ -23,17 +23,18 @@ class ModuleRepository extends ServiceEntityRepository
 
         $qb = $sub;
 
-        $qb->select('p')
-           ->from('App\Entity\Programme', 'p')
-           ->where('p.session = :id');
+        $qb->select('m')
+           ->from('App\Entity\Module', 'm')
+           ->leftJoin('m.programmes', 'mp')
+           ->where('mp.session = :id');
 
         $sub = $em->createQueryBuilder();
 
-        $sub->select('module.nomModule, module.id')
-            ->from('App\Entity\Module', 'module')
-            ->where($sub->expr()->notIn('module.id', $qb->getDQL()))
+        $sub->select('mo')
+            ->from('App\Entity\Module', 'mo')
+            ->where($sub->expr()->notIn('mo.id', $qb->getDQL()))
             ->setParameter('id', $session_id)
-            ->orderBy('module.nomModule');
+            ->orderBy('mo.nomModule');
 
         $query = $sub->getQuery();
         return $query->getResult();

@@ -24,7 +24,7 @@
         {% else %}
             {{ programme.nbJour}} jours  
         {% endif %}
-        {# <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a>  #}
+        <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a> 
         <a href="{{ path('remove_programme', {'programme': programme.id})}}"><i class="fa-solid fa-circle-minus"></i></a>
     {% endfor %}
 
