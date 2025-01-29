@@ -82,6 +82,10 @@ final class SessionController extends AbstractController
     #[Route('/session/{id}', name: 'show_session')]
     public function show(Session $session = null, SessionRepository $sessionRepository, ModuleRepository $moduleRepository): Response
     {
+        if(!$session) {
+            return $this->redirectToRoute('app_list_session');
+        }
+
         $nonInscrits = $sessionRepository->findNonInscrits($session->getId());
         $nonProgrammes = $moduleRepository->findNonProgrammes($session->getId());
         

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Session;
 use App\Entity\Formateur;
 use App\Entity\Stagiaire;
 use App\Form\FormateurType;
@@ -71,6 +72,33 @@ final class PersonneController extends AbstractController
         $entityManager->flush();
 
         return $this->redirectToRoute('app_stagiaire');
+    }
+
+    #[Route('/stagiaire/{stagiaire}/remove/{session}', name: 'remove_stagiaire')]
+    public function remove_stagiaire(Stagiaire $stagiaire, Session $session, EntityManagerInterface $entityManager) : Response
+    {
+        
+        $stagiaire->removeSession($session);
+
+        $entityManager->persist($stagiaire);
+        $entityManager->flush();
+
+        $sessionId = $session->getId();
+
+        return $this->redirectToRoute('show_session', ['id' => $sessionId]);
+    }
+
+    #[Route('stagiaire/{stagiaire}/add/{session}', name: 'add_stagiaire')]
+    public function add_stagiaire(Stagiaire $stagiaire, Session $session, EntityManagerInterface $entityManager): Response
+    {
+        $stagiaire->addSession($session);
+
+        $entityManager->persist($stagiaire);
+        $entityManager->flush();
+
+        $sessionId = $session->getId();
+
+        return $this->redirectToRoute('show_session', ['id' => $sessionId]);
     }
 
 
