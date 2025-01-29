@@ -21,8 +21,12 @@ final class HomeController extends AbstractController
     }
 
     #[Route('/formation/{id}', name: 'show_formation')]
-    public function show(Formation $formation): Response
+    public function show(Formation $formation = null): Response
     {
+        if(!$formation) {
+            return $this->redirectToRoute('app_home');
+        }
+        
         return $this->render('session/index.html.twig', [
             'formation' => $formation
         ]);
