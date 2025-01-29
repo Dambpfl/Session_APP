@@ -45,6 +45,11 @@
     {% endfor %}<br>
     
     <h3>Stagiaires non-inscrit</h3>
+    {% for message in app.flashes('fail') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+    {% endfor %}
     {% for stagiaire in nonInscrits %}
         {{ stagiaire.nomStagiaire}} {{stagiaire.prenomStagiaire}}
         <a href="{{ path('add_stagiaire', {'stagiaire':stagiaire.id, 'session':session.id})}}"><i class="fa-solid fa-person-circle-plus"></i></a><br>

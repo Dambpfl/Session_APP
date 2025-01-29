@@ -93,12 +93,21 @@ final class PersonneController extends AbstractController
     #[Route('stagiaire/{stagiaire}/add/{session}', name: 'add_stagiaire')]
     public function add_stagiaire(Stagiaire $stagiaire, Session $session, EntityManagerInterface $entityManager): Response
     {
+        $nbStagiaires = $session->getStagiaires();
+        $stagiaireInSession = count($nbStagiaires);
+        $sessionId = $session->getId();
+
+        if($session->getplace() === $stagiaireInSession){
+            $this->addFlash('fail', 'Plus de place dans la session');
+            return $this->redirectToRoute('show_session', ['id' => $sessionId]);
+        }
+        
         $stagiaire->addSession($session);
 
         $entityManager->persist($stagiaire);
         $entityManager->flush();
 
-        $sessionId = $session->getId();
+        
 
         return $this->redirectToRoute('show_session', ['id' => $sessionId]);
     }
