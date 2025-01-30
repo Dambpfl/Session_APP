@@ -38,19 +38,21 @@
                         {{ programme.nbJour}} jours  
                     {% endif %}
                     <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a> 
-                    <a href="{{ path('remove_programme', {'programme': programme.id})}}"><i class="fa-solid fa-circle-minus"></i></a>
+                    <a href="{{ path('remove_programme', {'programme': programme.id})}}" style="color: rgb(195, 30, 30);"><i class="fa-solid fa-circle-minus"></i></a>
                 {% endfor %}
             </div>
         
             <div class="nonprogramme-container">
                 <h5>Modules non-programmés</h5>
-                {% for module in nonProgrammes %}
-                    {{ module.nomModule}}
-                    <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
-                        <input type="number" name="days" min="1" placeholder="Nombre de jours">
-                        <button type="submit" name="submit" value="valider"><i class="fa-solid fa-circle-plus"></i></button><br>
-                    </form>
-                {% endfor %}
+                <div class="programmes-form">
+                    {% for module in nonProgrammes %} 
+                        <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
+                            <label for="name">{{ module.nomModule}} : </label>
+                            <input type="number" name="days" min="1" placeholder="Jours">
+                            <button type="submit" name="submit" value="valider" style="color:rgb(70, 165, 70);"><i class="fa-solid fa-circle-plus"></i></button>
+                        </form>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     
@@ -60,7 +62,7 @@
             
                 {% for stagiaire in session.stagiaires %}
                     {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} 
-                    <a href="{{ path('remove_stagiaire', {'stagiaire': stagiaire.id, 'session':session.id})}}"><i class="fa-solid fa-person-circle-minus"></i></a><br>
+                    <a href="{{ path('remove_stagiaire', {'stagiaire': stagiaire.id, 'session':session.id})}}" style="color:rgb(195, 30, 30)"><i class="fa-solid fa-person-circle-minus"></i></a><br>
                 {% endfor %}<br>
             </div>
             
@@ -74,7 +76,7 @@
                 {% endfor %}
                 {% for stagiaire in nonInscrits %}
                     {{ stagiaire.nomStagiaire}} {{stagiaire.prenomStagiaire}}
-                    <a href="{{ path('add_stagiaire', {'stagiaire':stagiaire.id, 'session':session.id})}}"><i class="fa-solid fa-person-circle-plus"></i></a><br>
+                    <a href="{{ path('add_stagiaire', {'stagiaire':stagiaire.id, 'session':session.id})}}" style="color:rgb(70, 165, 70);"><i class="fa-solid fa-person-circle-plus"></i></a><br>
                 {% endfor %}
             </div>
         </div>

@@ -96,8 +96,8 @@ h3 {
 .formateur-container {
     background-color: #35373B;
     border-radius: 10px;
-    height: 100px;
-    width: 200px;
+    height: 90px;
+    width: 300px;
 }
 
 .formateur-container h5 {
@@ -111,16 +111,16 @@ h3 {
 .informations-container{
     background-color: #35373B;
     border-radius: 10px;
-    height: 100px;
-    width: 250px;
+    height: 90px;
+    width: 300px;
     display: flex;
 }
 
 .place-container {
     border-right: 2px solid #26262b;
     margin: 10px;
-    padding-left: 20px;
-    padding-right: 25px;
+    padding-left: 30px;
+    padding-right: 35px;
 }
 
 .place-container p {
@@ -132,7 +132,13 @@ h3 {
 
 .date-container {
     margin: 10px;
-    font-size: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 11px;
+}
+
+.date-container h5 {
+    text-align: center;
 }
 
 /* PROGRAMMATION */
@@ -144,17 +150,37 @@ h3 {
 .programme-container {
     background-color: #35373B;
     border-radius: 10px;
-    height: 300px;
+    height: 200px;
     width: 300px;
     overflow: auto;
+    padding-left: 10px;
+}
+
+.programme-container h5 {
+    text-align: center;
 }
 
 .nonprogramme-container {
     background-color: #35373B;
     border-radius: 10px;
-    height: 300px;
+    height: 200px;
     width: 300px;
     overflow: auto;
+    padding-left: 10px;
+}
+
+.nonprogramme-container h5 {
+    text-align: center;
+}
+
+.nonprogramme-container button {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+}
+
+.nonprogramme-container input {
+    width: 60px;
 }
 
 /*  INSCRIPTION */
@@ -166,15 +192,25 @@ h3 {
 .inscrit-container {
     background-color: #35373B;
     border-radius: 10px;
-    height: 300px;
+    height: 200px;
     width: 300px;
     overflow: auto;
+    padding-left: 10px;
+}
+
+.inscrit-container h5 {
+    text-align: center;
 }
 
 .noninscrit-container {
     background-color: #35373B;
     border-radius: 10px;
-    height: 300px;
+    height: 200px;
     width: 300px;
     overflow: auto;
+    padding-left: 10px;
+}
+
+.noninscrit-container h5 {
+    text-align: center;
 }
