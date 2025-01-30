@@ -3,7 +3,13 @@
 {% block title %}Détails de la session{% endblock %}
 
 {% block body %}
-    <h1>{{ session.nomSession }} <a href="{{ path('edit_session', {'id': session.id})}}"><i class="fa-solid fa-pen-to-square"></i></a></h1>
+    <div class="titre-session">
+        <h1>{{ session.nomSession }}
+            <a href="{{ path('edit_session', {'id': session.id})}}">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+        </h1>
+    </div>
     
     <div class="session-container">
         <div class="base-container">

@@ -88,6 +88,12 @@ h3 {
     justify-content: center;
     gap: 10px;
 }
+
+.titre-session {
+    display: flex;
+    justify-content: center;
+}
+
 .base-container {
     display: flex;
     gap: 10px;
@@ -209,8 +215,77 @@ h3 {
     width: 300px;
     overflow: auto;
     padding-left: 10px;
+    padding-right: 10px;
 }
 
 .noninscrit-container h5 {
     text-align: center;
+}
+
+/* Liste des sessions */
+.listSession-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.add-session {
+    margin-left: 10px;
+}
+
+/* Liste des modules */
+.listModule-container {
+    background-color: #35373B;
+    height: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.listModule {
+    margin-left: 10px;
+}
+
+.new-module {
+    margin-left: 10px;
+}
+
+/* Liste des stagiaires */
+.listStagiaire-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.new-stagiaire {
+    margin-left: 10px;
+}
+
+/* Liste des formateurs */ 
+.listFormateurs-container {
+    background-color: #35373B;
+    height: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.listFormateur {
+    margin-left: 10px;
+}
+
+.new-formateur {
+    margin-left: 10px;
 }

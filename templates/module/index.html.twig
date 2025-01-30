@@ -4,9 +4,12 @@
 
 {% block body %}
     <h1>Liste des modules</h1>
-    <a href="{{ path('new_module')}}"><i class="fa-solid fa-plus"></i></a><br>
+    <a href="{{ path('new_module')}}" class="new-module"><i class="fa-solid fa-plus"></i></a><br>
     {% for module in modules %}
-        {{ module.nomModule}} <a href="{{ path('delete_module', {'id':module.id})}}"><i class="fa-solid fa-xmark"></i></a>
-        <br>
+    <div class="listModule-container">
+        <div class="listModule">
+            {{ module.nomModule}} <a href="{{ path('delete_module', {'id':module.id})}}"><i class="fa-solid fa-xmark"></i></a>
+        </div>
+    </div>
     {% endfor %}    
 {% endblock %}
