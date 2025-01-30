@@ -1,0 +1,157 @@
+body {
+    background-color: #242529;
+    color: #FFFFFF;
+}
+
+nav {
+    border-bottom: 2px solid #34363A;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 10px;
+}
+
+nav-right {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+h1,
+h2,
+h3 {
+    margin-left: 10px;
+}
+
+.formations-container {
+    background-color: #35373B;
+    height: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.formations {
+    margin-left: 10px;
+}
+
+.sessions-container {
+    background-color: #35373B;
+    height: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    position: relative;
+}
+
+.sessions,
+.new-session {
+    margin-left: 10px;
+}
+
+.edit-session {
+    position: absolute;
+    right: 40px;
+}
+
+.delete-session {
+    position: absolute;
+    right: 20px;
+}
+
+/* DETAILS SESSION */
+.session-container {
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+}
+.base-container {
+    display: flex;
+    gap: 10px;
+}
+.informations-container{
+    background-color: #35373B;
+    border-radius: 10px;
+    height: 100px;
+    width: 250px;
+    display: flex;
+}
+
+.place-container {
+    border-right: 2px solid #26262b;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+.formateur-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    height: 100px;
+    width: 200px;
+}
+/* PROGRAMMATION */
+.programmation-container {
+    display: flex;
+    gap: 10px;
+}
+
+.programme-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+    overflow: auto;
+}
+
+.nonprogramme-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+    overflow: auto;
+}
+
+/*  INSCRIPTION */
+.inscription-container {
+    display: flex;
+    gap: 10px;
+}
+
+.inscrit-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+    overflow: auto;
+}
+
+.noninscrit-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+    overflow: auto;
+}

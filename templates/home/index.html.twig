@@ -7,7 +7,14 @@
     <h1>Formations</h1>
     
     {% for formation in formations %}
-        <a href="{{ path('show_formation', {'id':formation.id })}}">{{formation.nomFormation}}</a><br>
+        <a href="{{ path('show_formation', {'id':formation.id })}}">
+            <div class="formations-container">
+                <div class="formations">
+                    {{formation.nomFormation}}
+                </div>
+            </div>
+        </a>
+
     {% endfor %}
 
 {% endblock %}

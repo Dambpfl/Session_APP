@@ -3,57 +3,82 @@
 {% block title %}Détails de la session{% endblock %}
 
 {% block body %}
-    <h1>Détails de la session</h1>
-
-    <h2>{{ session.nomSession }} <a href="{{ path('edit_session', {'id': session.id})}}"><i class="fa-solid fa-pen-to-square"></i></a></h2>
-
-    <h3>Formateur <a href="{{ path('app_formateur') }}"><i class="fa-solid fa-book"></i></a></h3>
-    <p>{{ session.formateur.nomFormateur }} {{ session.formateur.prenomFormateur }}</p>
-
-    <h3>Informations</h3>
-    <p>Nombre de place : {{ session.place }}</p>
-    <p>Date de début : {{ session.dateDebut | date("d-m-Y") }}</p>
-    <p>Date de fin : {{ session.dateFin | date("d-m-Y") }}</p>
-
-    <h3>Modules</h3> 
-    {% for programme in session.programmes %}
-        <p>{{ programme.module.nomModule }} - 
-
-        {% if programme.nbJour is same as(1) %}
-            {{ programme.nbJour}} jour 
-        {% else %}
-            {{ programme.nbJour}} jours  
-        {% endif %}
-        <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a> 
-        <a href="{{ path('remove_programme', {'programme': programme.id})}}"><i class="fa-solid fa-circle-minus"></i></a>
-    {% endfor %}
-
-    <h3>Modules non-programmés</h3>
-    {% for module in nonProgrammes %}
-        {{ module.nomModule}}
-        <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
-            <input type="number" name="days" min="1" placeholder="Nombre de jours">
-            <button type="submit" name="submit" value="valider"><i class="fa-solid fa-circle-plus"></i></button><br>
-        </form>
-    {% endfor %}
+    <h1>{{ session.nomSession }} <a href="{{ path('edit_session', {'id': session.id})}}"><i class="fa-solid fa-pen-to-square"></i></a></h1>
     
-    <h3>Stagiaires <a href="{{ path('app_stagiaire') }}"><i class="fa-solid fa-book"></i></a></h3>
-
-    {% for stagiaire in session.stagiaires %}
-        {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} 
-        <a href="{{ path('remove_stagiaire', {'stagiaire': stagiaire.id, 'session':session.id})}}"><i class="fa-solid fa-person-circle-minus"></i></a><br>
-    {% endfor %}<br>
+    <div class="session-container">
+        <div class="base-container">
+            <div class="formateur-container">
+                <h3>Formateur <a href="{{ path('app_formateur') }}"><i class="fa-solid fa-book"></i></a></h3>
+                <p>{{ session.formateur.nomFormateur }} {{ session.formateur.prenomFormateur }}</p>
+            </div>
+        
+            <div class="informations-container">
+                <div class="place-container">
+                    <h5>Places</h5>
+                    <p>{{ session.place }}</p>
+                </div>
+                <div class="date-container">
+                    <h5>Dates</h5>
+                    <p>Début : {{ session.dateDebut | date("d/m/Y") }}</p>
+                    <p>Fin : {{ session.dateFin | date("d/m/Y") }}</p>
+                </div>
+            </div>
+        </div>
     
-    <h3>Stagiaires non-inscrit</h3>
-    {% for message in app.flashes('fail') %}
-    <div class="alert alert-danger">
-        {{ message }}
+    
+        <div class="programmation-container">
+            <div class="programme-container">
+                <h3>Modules</h3> 
+                {% for programme in session.programmes %}
+                    <p>{{ programme.module.nomModule }} - 
+            
+                    {% if programme.nbJour is same as(1) %}
+                        {{ programme.nbJour}} jour 
+                    {% else %}
+                        {{ programme.nbJour}} jours  
+                    {% endif %}
+                    <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a> 
+                    <a href="{{ path('remove_programme', {'programme': programme.id})}}"><i class="fa-solid fa-circle-minus"></i></a>
+                {% endfor %}
+            </div>
+        
+            <div class="nonprogramme-container">
+                <h3>Modules non-programmés</h3>
+                {% for module in nonProgrammes %}
+                    {{ module.nomModule}}
+                    <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
+                        <input type="number" name="days" min="1" placeholder="Nombre de jours">
+                        <button type="submit" name="submit" value="valider"><i class="fa-solid fa-circle-plus"></i></button><br>
+                    </form>
+                {% endfor %}
+            </div>
+        </div>
+    
+        <div class="inscription-container">
+            <div class="inscrit-container">
+                <h3>Stagiaires <a href="{{ path('app_stagiaire') }}"><i class="fa-solid fa-book"></i></a></h3>
+            
+                {% for stagiaire in session.stagiaires %}
+                    {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} 
+                    <a href="{{ path('remove_stagiaire', {'stagiaire': stagiaire.id, 'session':session.id})}}"><i class="fa-solid fa-person-circle-minus"></i></a><br>
+                {% endfor %}<br>
+            </div>
+            
+        
+            <div class="noninscrit-container">
+                <h3>Stagiaires non-inscrit</h3>
+                {% for message in app.flashes('fail') %}
+                <div class="alert alert-danger">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% for stagiaire in nonInscrits %}
+                    {{ stagiaire.nomStagiaire}} {{stagiaire.prenomStagiaire}}
+                    <a href="{{ path('add_stagiaire', {'stagiaire':stagiaire.id, 'session':session.id})}}"><i class="fa-solid fa-person-circle-plus"></i></a><br>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    {% endfor %}
-    {% for stagiaire in nonInscrits %}
-        {{ stagiaire.nomStagiaire}} {{stagiaire.prenomStagiaire}}
-        <a href="{{ path('add_stagiaire', {'stagiaire':stagiaire.id, 'session':session.id})}}"><i class="fa-solid fa-person-circle-plus"></i></a><br>
-    {% endfor %}
 
     
 {% endblock %}
