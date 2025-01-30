@@ -92,6 +92,22 @@ h3 {
     display: flex;
     gap: 10px;
 }
+
+.formateur-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    height: 100px;
+    width: 200px;
+}
+
+.formateur-container h5 {
+    text-align: center;
+}
+
+.formateur-container p {
+    margin-left: 10px;
+}
+
 .informations-container{
     background-color: #35373B;
     border-radius: 10px;
@@ -102,16 +118,23 @@ h3 {
 
 .place-container {
     border-right: 2px solid #26262b;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-right: 10px;
+    margin: 10px;
+    padding-left: 20px;
+    padding-right: 25px;
 }
-.formateur-container {
-    background-color: #35373B;
-    border-radius: 10px;
-    height: 100px;
-    width: 200px;
+
+.place-container p {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.date-container {
+    margin: 10px;
+    font-size: 10px;
+}
+
 /* PROGRAMMATION */
 .programmation-container {
     display: flex;

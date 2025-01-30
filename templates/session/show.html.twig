@@ -8,7 +8,7 @@
     <div class="session-container">
         <div class="base-container">
             <div class="formateur-container">
-                <h3>Formateur <a href="{{ path('app_formateur') }}"><i class="fa-solid fa-book"></i></a></h3>
+                <h5>Formateur <a href="{{ path('app_formateur') }}"><i class="fa-solid fa-book"></i></a></h5>
                 <p>{{ session.formateur.nomFormateur }} {{ session.formateur.prenomFormateur }}</p>
             </div>
         
@@ -19,8 +19,8 @@
                 </div>
                 <div class="date-container">
                     <h5>Dates</h5>
-                    <p>Début : {{ session.dateDebut | date("d/m/Y") }}</p>
-                    <p>Fin : {{ session.dateFin | date("d/m/Y") }}</p>
+                        Début : {{ session.dateDebut | date("d/m/Y") }} <br>
+                        Fin : {{ session.dateFin | date("d/m/Y") }}
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
     
         <div class="programmation-container">
             <div class="programme-container">
-                <h3>Modules</h3> 
+                <h5>Modules</h5> 
                 {% for programme in session.programmes %}
                     <p>{{ programme.module.nomModule }} - 
             
@@ -43,7 +43,7 @@
             </div>
         
             <div class="nonprogramme-container">
-                <h3>Modules non-programmés</h3>
+                <h5>Modules non-programmés</h5>
                 {% for module in nonProgrammes %}
                     {{ module.nomModule}}
                     <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
@@ -56,7 +56,7 @@
     
         <div class="inscription-container">
             <div class="inscrit-container">
-                <h3>Stagiaires <a href="{{ path('app_stagiaire') }}"><i class="fa-solid fa-book"></i></a></h3>
+                <h5>Stagiaires <a href="{{ path('app_stagiaire') }}"><i class="fa-solid fa-book"></i></a></h5>
             
                 {% for stagiaire in session.stagiaires %}
                     {{ stagiaire.nomStagiaire}} {{ stagiaire.prenomStagiaire}} 
@@ -66,7 +66,7 @@
             
         
             <div class="noninscrit-container">
-                <h3>Stagiaires non-inscrit</h3>
+                <h5>Stagiaires non-inscrit</h5>
                 {% for message in app.flashes('fail') %}
                 <div class="alert alert-danger">
                     {{ message }}
