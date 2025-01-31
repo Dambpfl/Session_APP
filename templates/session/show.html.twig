@@ -54,7 +54,7 @@
                     {% for module in nonProgrammes %} 
                         <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
                             <label for="name">{{ module.nomModule}} : </label>
-                            <input type="number" name="days" min="1" placeholder="Jours">
+                            <input type="number" name="days" min="1" value="1" placeholder="Jours">
                             <button type="submit" name="submit" value="valider" style="color:rgb(70, 165, 70);"><i class="fa-solid fa-circle-plus"></i></button>
                         </form>
                     {% endfor %}

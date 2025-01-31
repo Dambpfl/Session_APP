@@ -40,6 +40,62 @@ h3 {
     margin-left: 10px;
 }
 
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #35373B;
+    border-radius: 10px;
+    width: 300px;
+    height: 260px;
+}
+
+.button-login {
+    border: none;
+    border-radius: 5px;
+    background-color: #82713C;
+    color: white;
+    height: 32px;
+    width: 120px;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #35373B;
+    border-radius: 10px;
+    width: 300px;
+    height: 300px;
+}
+
+.checkbox-label {
+    margin-right: 8px;
+}
+
+.button-register {
+    border: none;
+    border-radius: 5px;
+    background-color: #82713C;
+    color: white;
+    height: 32px;
+    width: 120px;
+}
+
+
 .formations-container {
     background-color: #35373B;
     height: 70px;
