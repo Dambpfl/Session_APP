@@ -18,21 +18,27 @@ class FormateurType extends AbstractType
             ->add('nomFormateur', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Nom :',
             ])
             ->add('prenomFormateur', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Prénom :'
             ])
             ->add('emailFormateur', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Email :'
             ])
             ->add('valider', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-success'
+                    'class' => 'bs-addEdit'
                 ]
             ])
         ;

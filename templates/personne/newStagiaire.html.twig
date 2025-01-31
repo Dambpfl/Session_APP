@@ -12,38 +12,47 @@
    {#  <p>{{ form(formAddStagiaire) }}</p>  #}
 
    {# DISPOSITION DES FORMULAIRES AVEC FORM_START + DIV #}
-     {{ form_start(formAddStagiaire) }} 
-     <div class="row">
-        <div class="col-sm">
-            {{ form_row(formAddStagiaire.nomStagiaire) }}
+   <div class="form-addStagiaire">
+       {{ form_start(formAddStagiaire) }} 
+       <div class="row">
+          <div class="col-sm">
+              {{ form_row(formAddStagiaire.nomStagiaire) }}
+          </div>
+          <div class="col-sm">
+              {{ form_row(formAddStagiaire.prenomStagiaire) }}
+          </div>
+       </div>
+       <div class="row">
+           <div class="col-sm">
+               {{ form_row(formAddStagiaire.sexe) }}
+           </div>
+           <div class="col-sm">
+               {{ form_row(formAddStagiaire.ville) }}
+           </div>
+       </div>
+       {{ form_row(formAddStagiaire.dateNaissance) }}
+       <div class="row">
+           <div class="col-sm">
+              {{ form_row(formAddStagiaire.email) }}
+           </div>
+           <div class="col-sm">
+              {{ form_row(formAddStagiaire.telephone) }}
+           </div>
+       </div>     
+       <h5>Sessions :</h5>
+       <div class="Addsessions-container">
+        {% for choice in formAddStagiaire.sessions %}
+            <div class="checkbox-container">
+                <div class="form-check">
+                    {{ form_widget(choice) }}
+                    {{ form_label(choice) }}
+                </div>
+            </div>
+        {% endfor %}
         </div>
-        <div class="col-sm">
-            {{ form_row(formAddStagiaire.prenomStagiaire) }}
-        </div>
-     </div>
-     <div class="row">
-         <div class="col-sm">
-             {{ form_row(formAddStagiaire.sexe) }}
-         </div>
-         <div class="col-sm">
-             {{ form_row(formAddStagiaire.ville) }}
-         </div>
-     </div>
-     {{ form_row(formAddStagiaire.dateNaissance) }}
-     <div class="row">
-         <div class="col-sm">
-            {{ form_row(formAddStagiaire.email) }}
-         </div>
-         <div class="col-sm">
-            {{ form_row(formAddStagiaire.telephone) }}
-         </div>
-     </div>     
-         
-        {{ form_row(formAddStagiaire.sessions) }}
-        {{ form_row(formAddStagiaire.valider) }}
-
-
-     {{ form_end(formAddStagiaire) }} 
+          {{ form_row(formAddStagiaire.valider) }}
+       {{ form_end(formAddStagiaire) }} 
+   </div>
 
 
 {% endblock %}

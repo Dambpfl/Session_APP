@@ -21,48 +21,57 @@ class StagiaireType extends AbstractType
             ->add('nomStagiaire', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'label' => 'Nom :'
             ])
             ->add('prenomStagiaire', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'label' => 'Prénom :'
             ])
             ->add('sexe', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'label' => 'Sexe :'
             ])
             ->add('dateNaissance', DateType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'label' => 'Date de naissance :'
             ])
             ->add('ville', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'label' => 'Ville :'
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'label' => 'Email :'
             ])
             ->add('telephone', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
-                ]
+                ],
+                'label' => 'Téléphone :'
             ])
             ->add('sessions', EntityType::class, [
                 'class' => Session::class,
                 'choice_label' => 'nomSession',
                 'multiple' => true,
                 'expanded' => true,
-                'by_reference' => false
+                'by_reference' => false,
+                'row_attr' => ['class' => 'checkbox-sessions-container'],
+                'label' => 'Sélectionner les sessions : '
             ])
             ->add('valider', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-success'
+                    'class' => 'bs-addEdit'
                 ]
             ])
         ;

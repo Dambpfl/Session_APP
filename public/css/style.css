@@ -419,8 +419,7 @@ h3 {
     border-radius: 10px;
     margin-right: 10px;
     margin-left: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
+    padding: 10px;
     width: 385px;
     height: 265px;
 }
@@ -430,8 +429,7 @@ h3 {
     border-radius: 10px;
     margin-right: 10px;
     margin-left: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
+    padding: 10px;
     width: 385px;
     height: 123px;
 }
@@ -443,4 +441,27 @@ h3 {
     color: white;
     height: 32px;
     width: 120px;
+}
+
+.form-addStagiaire {
+    background-color: #35373B;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 10px;
+}
+
+.checkbox-sessions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.addFormateur-container {
+    background-color: #35373B;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
+    padding: 10px;
+    width: 400px;
 }
