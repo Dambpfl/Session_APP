@@ -5,34 +5,31 @@
 {% block body %}
 {% if edit %}
         <h1>Modifier une session</h1>  
+        <div class="form-editSession">
+            {{ form_start(formAddSession) }}
+                {{ form_row(formAddSession.nomSession)}}      
+                {{ form_row(formAddSession.place)}}
+                {{ form_row(formAddSession.dateDebut)}}
+                {{ form_row(formAddSession.dateFin)}}
+                {{ form_row(formAddSession.formateur)}}
+                {{ form_row(formAddSession.formation)}}
+                {{ form_row(formAddSession.valider)}}
+            {{ form_end(formAddSession) }}
+        </div>
+        {% else %}
+            <h1>Ajouter une session</h1>
+        <div class="form-addSession">
+            {{ form_start(formAddSession) }}
+                {{ form_row(formAddSession.nomSession)}}      
+                {{ form_row(formAddSession.place)}}
+                {{ form_row(formAddSession.dateDebut)}}
+                {{ form_row(formAddSession.dateFin)}}
+                {{ form_row(formAddSession.formateur)}}
+                {{ form_row(formAddSession.formation)}}
+                {{ form_row(formAddSession.valider)}}
+            {{ form_end(formAddSession) }}
+        </div>
         
-        {{ form_start(formAddSession) }}
-    
-        {{ form_row(formAddSession.nomSession)}}      
-        {{ form_row(formAddSession.place)}}
-        {{ form_row(formAddSession.dateDebut)}}
-        {{ form_row(formAddSession.dateFin)}}
-        {{ form_row(formAddSession.formateur)}}
-        {{ form_row(formAddSession.formation)}}
-        
-        {{ form_row(formAddSession.valider)}}
-
-    {{ form_end(formAddSession) }}
-    {% else %}
-        <h1>Ajouter une session</h1>
-
-    {{ form_start(formAddSession) }}
-
-        {{ form_row(formAddSession.nomSession)}}      
-        {{ form_row(formAddSession.place)}}
-        {{ form_row(formAddSession.dateDebut)}}
-        {{ form_row(formAddSession.dateFin)}}
-        {{ form_row(formAddSession.formateur)}}
-        {{ form_row(formAddSession.formation)}}
-        
-        {{ form_row(formAddSession.valider)}}
-
-    {{ form_end(formAddSession) }}
 
     {% endif %}
 

@@ -20,22 +20,38 @@ class SessionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nomSession', TextType::class)
-            ->add('place', IntegerType::class)
-            ->add('dateDebut', DateType::class)
-            ->add('dateFin', DateType::class)
+            ->add('nomSession', TextType::class, [
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Nom :'
+            ])
+            ->add('place', IntegerType::class, [
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Nombre de places :'
+            ])
+            ->add('dateDebut', DateType::class, [
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Date de début :'
+            ])
+            ->add('dateFin', DateType::class, [
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Date de fin :'
+            ])
 
             ->add('formateur', EntityType::class, [
                 'class' => Formateur::class,
                 'choice_label' => 'nomFormateur',
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Formateur : '
             ])
             ->add('formation', EntityType::class, [
                 'class' => Formation::class,
                 'choice_label' => 'nomFormation',
+                'row_attr' => ['class' => 'mb-2'],
+                'label' => 'Formation : '
             ])
             ->add('valider', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-success'
+                    'class' => 'bs-addEdit'
                 ]
             ])
         ;

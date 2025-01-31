@@ -203,6 +203,7 @@ h3 {
     text-align: center;
 }
 
+
 /* PROGRAMMATION */
 .programmation-container {
     display: flex;
@@ -216,7 +217,19 @@ h3 {
     width: 300px;
     overflow: auto;
     padding-left: 10px;
+    position: relative;
 }
+
+.edit-programme {
+    position: absolute;
+    right: 20px;
+}
+
+.remove-programme {
+    position: absolute;
+    right: 45px;
+}
+
 
 .programme-container h5 {
     text-align: center;
@@ -229,6 +242,11 @@ h3 {
     width: 300px;
     overflow: auto;
     padding-left: 10px;
+}
+
+.programmes-form {
+    text-align: right;
+    width: 220px;
 }
 
 .nonprogramme-container h5 {
@@ -292,6 +310,16 @@ h3 {
     margin-left: 10px;
 }
 
+.edit-listSession {
+    position: absolute;
+    right: 20px;;
+}
+
+.delete-listSession {
+    position: absolute;
+    right: 20px;
+}
+
 /* Liste des modules */
 .listModule-container {
     background-color: #35373B;
@@ -312,6 +340,11 @@ h3 {
     margin-left: 10px;
 }
 
+.delete-listModule {
+    position: absolute;
+    right: 20px;
+}
+
 /* Liste des stagiaires */
 .listStagiaire-container {
     background-color: #35373B;
@@ -320,10 +353,22 @@ h3 {
     margin-right: 10px;
     padding-left: 10px;
     margin-bottom: 10px;
+    position: relative;
 }
 
 .new-stagiaire {
     margin-left: 10px;
+}
+
+.edit-listStagiaire {
+    position: absolute;
+    right: 20px;
+}
+
+.delete-listStagiaire {
+    position: absolute;
+    right: 20px;
+    bottom: 0px;
 }
 
 /* Liste des formateurs */ 
@@ -344,4 +389,58 @@ h3 {
 
 .new-formateur {
     margin-left: 10px;
+}
+
+.edit-listFormateur {
+    position: absolute;
+    right: 20px;
+}
+
+.delete-listFormateur {
+    position: absolute;
+    right: 23px;
+}
+
+/* Formulaire edit session*/
+.form-editSession {
+    background-color: #35373B;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 385px;
+    height: 265px;
+}
+
+/* Formulaire */
+.form-addSession {
+    background-color: #35373B;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 385px;
+    height: 265px;
+}
+
+.form-addModule {
+    background-color: #35373B;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 385px;
+    height: 123px;
+}
+
+.bs-addEdit {
+    border: none;
+    border-radius: 5px;
+    background-color: #82713C;
+    color: white;
+    height: 32px;
+    width: 120px;
 }

@@ -43,8 +43,9 @@
                     {% else %}
                         {{ programme.nbJour}} jours  
                     {% endif %}
-                    <a href="{{ path('edit_programme', {'id': programme.id }) }}"><i class="fa-solid fa-pen-to-square"></i></i></a> 
-                    <a href="{{ path('remove_programme', {'programme': programme.id})}}" style="color: rgb(195, 30, 30);"><i class="fa-solid fa-circle-minus"></i></a>
+                    <a href="{{ path('edit_programme', {'id': programme.id }) }}" class="edit-programme"><i class="fa-solid fa-pen-to-square"></i></i></a> 
+                    <a href="{{ path('remove_programme', {'programme': programme.id})}}" class="remove-programme" style="color: rgb(195, 30, 30);"><i class="fa-solid fa-circle-minus"></i></a>
+                    </p>
                 {% endfor %}
             </div>
         
@@ -52,8 +53,8 @@
                 <h5>Modules non-programmés</h5>
                 <div class="programmes-form">
                     {% for module in nonProgrammes %} 
-                        <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
-                            <label for="name">{{ module.nomModule}} : </label>
+                    <form action="{{ path('add_programme', {'module': module.id, 'session': session.id})}}" method="post">
+                            {{ module.nomModule}} :
                             <input type="number" name="days" min="1" value="1" placeholder="Jours">
                             <button type="submit" name="submit" value="valider" style="color:rgb(70, 165, 70);"><i class="fa-solid fa-circle-plus"></i></button>
                         </form>
